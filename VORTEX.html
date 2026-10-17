@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- saved from url=(0043)file:///C:/Users/lhern/Downloads/index.html -->
+<html lang="fr"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VORTEX</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b0b10;color:#fff;font-family:Arial,sans-serif}
+header{padding:22px;background:#14131d;color:#a78bfa;font-size:28px;font-weight:bold;letter-spacing:5px;border-bottom:1px solid #30283e}
+.layout{display:flex;min-height:85vh}
+aside{width:210px;padding:18px;background:#14131d}
+h3{color:#a78bfa}
+.channel{padding:12px;margin:8px 0;background:#242230;border-radius:8px}
+main{flex:1;min-width:0;padding:22px}
+#messages{height:55vh;overflow:auto;background:#14131d;border-radius:12px;padding:14px;margin-bottom:14px}
+.message{padding:9px;overflow-wrap:anywhere}
+.message strong{color:#a78bfa}
+form{display:flex;gap:8px}
+input{flex:1;min-width:0;padding:13px;background:#22202d;color:white;border:1px solid #49415c;border-radius:8px}
+button{padding:12px;background:#8b5cf6;color:white;border:0;border-radius:8px;cursor:pointer}
+@media(max-width:600px){aside{width:115px;padding:8px}main{padding:10px}}
+</style>
+</head>
+<body>
+<header>VORTEX</header>
+<div class="layout">
+<aside>
+<h3>Serveurs</h3>
+<div class="channel">🌌 Général</div>
+<div class="channel">🎮 Gaming</div>
+<div class="channel">💬 Discussion</div>
+</aside>
+<main>
+<h2># général</h2>
+<div id="messages">
+<div class="message"><strong>VORTEX :</strong> Bienvenue dans la communauté !</div>
+</div>
+<form id="form">
+<input id="message" placeholder="Écris un message..." maxlength="500" autocomplete="off">
+<button type="submit">Envoyer</button>
+</form>
+</main>
+</div>
+<script>
+const form=document.getElementById("form");
+const input=document.getElementById("message");
+const messages=document.getElementById("messages");
+form.addEventListener("submit",function(e){
+e.preventDefault();
+const text=input.value.trim();
+if(!text)return;
+const item=document.createElement("div");
+item.className="message";
+const author=document.createElement("strong");
+author.textContent="Toi : ";
+const content=document.createElement("span");
+content.textContent=text;
+item.append(author,content);
+messages.appendChild(item);
+messages.scrollTop=messages.scrollHeight;
+input.value="";
+});
+</script>
+
+
+</body></html>
